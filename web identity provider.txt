@@ -1,0 +1,26 @@
+{
+ "Version": "2012-10-17",
+ "Statement": [
+  {
+   "Effect": "Allow",
+   "Action": [
+    "dynamodb:BatchGetItem",
+    "dynamodb:BatchWriteItem",
+    "dynamodb:GetItem",
+    "dynamodb:PutItem",
+    "dynamodb:Query",
+    "dynamodb:UpdateItem"
+   ],
+   "Resource": [
+    "arn:aws:dynamodb:eu-west-3:705937680872:table/student-namelist"
+   ],
+   "Condition": {
+    "ForAllValues:StringEquals": {
+     "dynamodb:LeadingKeys": [
+      "${graph.facebook.com:id}"
+     ]
+    }
+   }
+  }
+ ]
+}
